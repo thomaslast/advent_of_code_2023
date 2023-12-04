@@ -8,7 +8,7 @@ def day4_parta(file_input: Path = Path.cwd() / "input.txt") -> int:
     lines = get_input_lines(file_input)
     total_points = 0
     for line in lines:
-        numbers, winning_numbers = line[(line.find(":")+1):].split("|")
+        winning_numbers, numbers = line[(line.find(":")+1):].split("|")
         numbers = numbers.split()
         winning_numbers = winning_numbers.split()
         matches = 0
@@ -33,7 +33,7 @@ def day4_partb(file_input: Path = Path.cwd() / "input.txt") -> int:
                 matches += 1
         for j in range(i + 1, i + 1 + matches):
             cards[j] += cards[i]
-    return sum(cards.values()) + 1
+    return sum(cards.values()) + 1  # for the first card
 
 
 if __name__ == "__main__":
